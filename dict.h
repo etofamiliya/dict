@@ -18,9 +18,9 @@ typedef struct {
 } dict_storage_t;
 
 typedef struct {
-	dict_storage_t storages[2];
-	size_t iterator;
-	int resizing;
+  dict_storage_t storages[2];
+  size_t iterator;
+  int resizing;
 } dict_t;
 
 

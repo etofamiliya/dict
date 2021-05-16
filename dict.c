@@ -219,7 +219,7 @@ void dict_free(dict_t *dict, void (freefunc)(void *)) {
   for (int s = 0; s < 2; s++) {
     dict_storage_t *storage = dict->storages + s;
     dictelem_t **data = storage->data;
-    for (int z = 0; z < storage->capacity; z++) {
+    for (size_t z = 0; z < storage->capacity; z++) {
       if (data[z]) {
         dictelem_t *next, *elem = data[z];
         while(elem) {

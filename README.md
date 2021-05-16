@@ -1,20 +1,28 @@
 ### Basic usage:
 
 ```c
+#include <stdlib.h>
+#include <stdio.h>
 #include "dict.h"
 
-dict_t *vp = dict_new();
-char *solo[] = "Alexey Berezin";
-char *noone[] = "Vladimir Minenko";
-dict_set(vp, "Solo", solo);
-dict_set(vp, "Noone", noone);
-...
-char *query = dict_get(dict, "Solo");
-dict_free(vp, 0); // 0 for values placed in static variables
+int main(int argn, char **argv) {
+  
+  char *query;
+  char solo[] = "Alexey Berezin";
+  char noone[] = "Vladimir Minenko";
+  
+  dict_t *vp = dict_new();
+  dict_set(vp, "Solo", solo);
+  dict_set(vp, "Noone", noone);
 
-
-...
-usertype *somename = usertype_new();
-dict_free(dict, usertype_free)
+  query = dict_get(vp, "Solo");
+  printf("%s\n", query); // Alexey Berezin
+  query = dict_get(vp, "Noone");
+  printf("%s\n", query); // Vladimir Minenko
+  
+  dict_free(vp, 0);
+  
+  return 0;  
+}
 
 ```
